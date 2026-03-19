@@ -1,107 +1,325 @@
 <!DOCTYPE html>
-<html lang="pt-pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friend - O Teu Amigo Virtual de IA</title>
+    <title>Wappi Chats - Suas Mensagens, Sua Privacidade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* CSS RESET & VARIAVEIS */
         :root {
-            --primary-color: #6c5ce7;
-            --secondary-color: #a29bfe;
-            --dark-color: #2d3436;
-            --light-color: #ffffff;
+            --bg-color: #f4f6f9;
+            --text-dark: #000000;
+            --text-gray: #4a5568;
+            --card-bg: #ffffff;
+            --accent-blue: #007aff; /* Cor padrão do botão Chats no app */
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --radius-lg: 24px;
+            --radius-sm: 12px;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
             line-height: 1.6;
-            color: var(--dark-color);
-            background-color: #f9f9f9;
         }
 
-        /* Hero Section */
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 80px 20px;
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HERO SECTION */
+        .hero {
             text-align: center;
+            padding: 100px 0 60px;
         }
 
-        header h1 {
-            font-size: 3rem;
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
             margin-bottom: 20px;
+            letter-spacing: -1.5px;
         }
 
-        header p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 30px;
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto 50px;
         }
 
-        /* Botão de Download */
-        .btn-download {
+        /* BOTÃO GOOGLE PLAY */
+        .gp-button {
             display: inline-flex;
             align-items: center;
             background-color: #000;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: var(--radius-sm);
             text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        .btn-download:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        .gp-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
-        .btn-download i {
-            font-size: 24px;
-            margin-right: 15px;
+        .gp-button i {
+            font-size: 32px;
+            margin-right: 12px;
         }
 
-        .btn-content {
+        .gp-text {
             text-align: left;
+            line-height: 1.2;
         }
 
-        .btn-content span {
+        .gp-text span {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #aaa;
             display: block;
-            font-size: 0.8rem;
-            font-weight: normal;
         }
 
-        /* Funcionalidades */
-        .features {
-            padding: 60px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
+        .gp-text strong {
+            font-size: 20px;
+        }
+
+        /* GRID DE RECURSOS */
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
+            padding-bottom: 80px;
         }
 
         .feature-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
         }
 
-        .feature-card i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
+        .feature-card.dark {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .feature-card i.main-icon {
+            font-size: 40px;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .feature-card:not(.dark) i.main-icon { color: var(--accent-blue); }
+        .feature-card.dark i.main-icon { color: var(--accent-blue); }
+
+        .feature-card h2 {
+            font-size: 1.75rem;
+            margin-bottom: 25px;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            color: var(--text-gray);
+        }
+
+        .feature-card.dark ul { color: #aaa; }
+
+        .feature-card li {
+            position: relative;
+            padding-left: 30px;
             margin-bottom: 15px;
         }
 
+        .feature-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+            font-size: 1.5em;
+            line-height: 1;
+        }
+
+        /* ICONS SECTION */
+        .icons-list {
+            grid-column: span 2;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding-top: 50px;
+        }
+
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 120px;
+        }
+
+        .icon-box {
+            background-color: var(--card-bg);
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 15px;
+            font-size: 30px;
+            color: var(--text-gray);
+        }
+
+        .icon-item.active .icon-box {
+            color: var(--accent-blue);
+        }
+
+        .icon-item span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-gray);
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-links a:hover { text-decoration: underline; }
+
+        .attribution {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 20px;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .icons-list { grid-column: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Apresentamos o Wappi Chats:<br> Suas Mensagens, Sua Privacidade.</h1>
+            <p>Comunicação segura e privada, exatamente como você gosta.</p>
+            
+            <a href="https://play.google.com/store/apps/details?id=com.jack.friend" class="gp-button" target="_blank">
+                <i class="fab fa-google-play"></i>
+                <div class="gp-text">
+                    <span>DISPONÍVEL NO</span>
+                    <strong>Google Play</strong>
+                </div>
+            </a>
+        </section>
+
+        <section class="features-grid">
+            
+            <div class="feature-card">
+                <i class="fas fa-comment-dots main-icon"></i>
+                <h2>Conversas Organizadas</h2>
+                <ul>
+                    <li>Lista de conversas claras</li>
+                    <li>Pesquisa rápida de chats (ícone de pesquisa)</li>
+                    <li>Acesso rápido a contatos (ícone de amigos)</li>
+                </ul>
+            </div>
+
+            <div class="feature-card dark">
+                <i class="fas fa-shield-alt main-icon"></i>
+                <h2>Privacidade Sem Complicação</h2>
+                <ul>
+                    <li>Controle de privacidade total</li>
+                    <li>Opções de segurança avançadas</li>
+                    <li>Suas conversas são criptografadas</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <i class="fas fa-users main-icon"></i>
+                <h2>Recursos de Comunicação</h2>
+                <ul>
+                    <li>Feed integrado (ícone de bússola)</li>
+                    <li>Chamadas de voz e vídeo (ícone de telefone)</li>
+                    <li>Controle de privacidade total (ícone de engrenagem)</li>
+                </ul>
+            </div>
+
+            <div class="icons-list">
+                <div class="icon-item active">
+                    <div class="icon-box"><i class="fas fa-comment-dots"></i></div>
+                    <span>Chats</span>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-box"><i class="fas fa-compass"></i></div>
+                    <span>Feed</span>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-box"><i class="fas fa-user-friends"></i></div>
+                    <span>Amigos</span>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-box"><i class="fas fa-phone"></i></div>
+                    <span>Ligações</span>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-box"><i class="fas fa-cog"></i></div>
+                    <span>Ajustes</span>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">Legal</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Contributions</a>
+                <a href="#">Links</a>
+            </div>
+            <p>&copy; 2024 Wappi Chats. Todos os direitos reservados.</p>
+            <p class="attribution">Designed by Jack</p>
+        </div>
+    </footer>
+
+</body>
+</html>
         /* Rodapé */
         footer {
             background-color: #f1f1f1;
