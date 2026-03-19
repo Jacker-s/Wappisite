@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friend - O Teu Amigo Virtual de IA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --dark-color: #2d3436;
+            --light-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f9f9f9;
+        }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* Botão de Download */
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            background-color: #000;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-download i {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+
+        .btn-content {
+            text-align: left;
+        }
+
+        .btn-content span {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: normal;
+        }
+
+        /* Funcionalidades */
+        .features {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+
+        .app-preview {
+            max-width: 250px;
+            margin-top: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Conhece o Friend</h1>
+        <p>O teu novo companheiro virtual baseado em IA. Conversas profundas, apoio emocional e diversão, tudo na palma da tua mão.</p>
+        
+        <a href="https://play.google.com/store/apps/details?id=com.friendaplikacja.app" class="btn-download" target="_blank">
+            <i class="fab fa-google-play"></i>
+            <div class="btn-content">
+                <span>DISPONÍVEL NO</span>
+                Google Play
+            </div>
+        </a>
+
+        <br>
+        <img src="https://via.placeholder.com/250x500?text=App+Preview" alt="Friend App Screenshot" class="app-preview">
+    </header>
+
+    <section class="features">
+        <div class="feature-card">
+            <i class="fas fa-comments"></i>
+            <h3>Conversas Reais</h3>
+            <p>Uma IA que aprende contigo e mantém conversas fluídas sobre qualquer tema.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-user-astronaut"></i>
+            <h3>Personalização</h3>
+            <p>Escolhe a personalidade e a aparência do teu amigo virtual ideal.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Espaço Seguro</h3>
+            <p>Desabafa sem julgamentos num ambiente privado e seguro 24/7.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Friend App. Todos os direitos reservados.</p>
+        <p><small><a href="#">Política de Privacidade</a> | <a href="mailto:kontakt@friendapp.pl">Suporte</a></small></p>
+    </footer>
+
+</body>
+</html>
